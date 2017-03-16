@@ -26,6 +26,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="PytonLearn.py" />
+    <Compile Include="ShopifyUtils.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="StartParameters.py">
       <SubType>Code</SubType>
     </Compile>

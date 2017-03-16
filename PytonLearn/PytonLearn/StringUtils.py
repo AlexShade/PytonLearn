@@ -1,18 +1,18 @@
 domainPreffix = ['en','us','uk'] #https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%B4%D1%8B_%D1%8F%D0%B7%D1%8B%D0%BA%D0%BE%D0%B2
 
-#Привести строку в читаемый вид (для ссылок email)
+#РџСЂРёРІРµСЃС‚Рё СЃС‚СЂРѕРєСѓ РІ С‡РёС‚Р°РµРјС‹Р№ РІРёРґ (РґР»СЏ СЃСЃС‹Р»РѕРє email)
 def normalizeWebString(source):
     source = source.strip(" \t\n").lower()
     return source
 
-#Обрезать строку начиная с символа
+#РћР±СЂРµР·Р°С‚СЊ СЃС‚СЂРѕРєСѓ РЅР°С‡РёРЅР°СЏ СЃ СЃРёРјРІРѕР»Р°
 def trunkStr(source,fchar):
     if source.find(fchar)>-1:
        return source[0:source.find(fchar)]
     return source
     
 
-#Выдернуть ссылку на соцсеть
+#Р’С‹РґРµСЂРЅСѓС‚СЊ СЃСЃС‹Р»РєСѓ РЅР° СЃРѕС†СЃРµС‚СЊ
 def getSocialLink(SocialNetwork, path):
     path = normalizeWebString(path)
     
@@ -31,7 +31,7 @@ def getSocialLink(SocialNetwork, path):
     else:
         return ""
 
-#Выдернуть ссылку из листа
+#Р’С‹РґРµСЂРЅСѓС‚СЊ СЃСЃС‹Р»РєСѓ РёР· Р»РёСЃС‚Р°
 def getSocialLinkFromList(SocialNetwork, pathlist):
     for i in reversed(pathlist):
         reslink = getSocialLink(SocialNetwork,i)
@@ -39,7 +39,7 @@ def getSocialLinkFromList(SocialNetwork, pathlist):
             return reslink
     return ""
 
-#Выдернуть email
+#Р’С‹РґРµСЂРЅСѓС‚СЊ email
 def getEmail(path):
     path = normalizeWebString(path)
     path=trunkStr(path,"?");
@@ -51,7 +51,7 @@ def getEmail(path):
     else:
         return ""
 
-#Выдернуть email из листа
+#Р’С‹РґРµСЂРЅСѓС‚СЊ email РёР· Р»РёСЃС‚Р°
 def getEmailFromList(pathlist):
     for i in reversed(pathlist):
         reslink = getEmail(i)
