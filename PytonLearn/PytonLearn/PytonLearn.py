@@ -1,6 +1,7 @@
 from BS4Utils import getAllLinks
 from StringUtils import getSocialLink, getEmail, getEmailFromList, getSocialLinkFromList
 from bs4 import BeautifulSoup
+from ShopifyUtils import getShopifyProduct
 import os 
 #import StartParameters
 #import subprocess
@@ -22,6 +23,7 @@ htmlBest = urlopen("https://00babies.com/")
 bsObjBest = BeautifulSoup(htmlBest.read(), 'html.parser')
 allBestLinks = getAllLinks(bsObjBest,"/product/")
 
+shopifyProduct = getShopifyProduct("https://0055design.com/","/products/brilliant-womens-t-shirt?view=quick")
 
 email = getEmailFromList(allLinks)
 facebook = getSocialLinkFromList("facebook.com",allLinks)

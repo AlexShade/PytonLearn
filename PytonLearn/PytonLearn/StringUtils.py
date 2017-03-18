@@ -1,4 +1,4 @@
-domainPreffix = ['en','us','uk'] #https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%B4%D1%8B_%D1%8F%D0%B7%D1%8B%D0%BA%D0%BE%D0%B2
+domainPreffix = ['en','us','uk','de','in','gb','es','it','fr','se','ru','pt','au','nz'] #https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%B4%D1%8B_%D1%8F%D0%B7%D1%8B%D0%BA%D0%BE%D0%B2
 
 #Привести строку в читаемый вид (для ссылок email)
 def normalizeWebString(source):
