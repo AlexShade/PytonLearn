@@ -1,4 +1,6 @@
 from bs4 import BeautifulSoup
+from urllib.request import urlopen
+from urllib.error import URLError
 
 #get all links from bsObj
 def getAllLinks(bsObj, startWith = ""):
@@ -16,5 +18,19 @@ def getAllLinks(bsObj, startWith = ""):
 def getBS4Document(path):
 	errCode = 0
 	errText = ""
-
-	return errCode, errText, bs4Doc
+	try:
+		html = urlopen(path)
+		bsObj = BeautifulSoup(html.read(), 'html.parser')
+	except URLError as e:
+		if hasattr(e, 'code'):
+			errCode = 1
+			errText = e.code
+		else:
+			errCode = 2
+			errText = "error"
+	except:
+		errCode = 3
+		errText = "error"
+	if errCode>0:
+		bsObj =  BeautifulSoup('','html.parser')
+	return errCode, errText, bsObj
